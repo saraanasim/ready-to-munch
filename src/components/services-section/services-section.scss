@@ -1,0 +1,99 @@
+.container_services {
+  width: 100%;
+  height: 100%;
+  //   background-color: aqua;
+  //   padding-top: 50px;
+  position: relative;
+  text-align: center;
+}
+.boxContainer_services {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  padding: 40px 40px;
+  border-radius: 30px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  min-height: 128px;
+  width: 270px;
+}
+.icon_services {
+  width: 100%;
+  object-fit: contain;
+  max-width: 60px;
+}
+#cardText_services {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #000000;
+}
+
+.title_services {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #000000;
+}
+.gridContainer_services {
+  background: url(../../assets/images/services_bg.png);
+  background-position: center 10%;
+  background-repeat: no-repeat;
+  background-size: 70%;
+  height: 310px;
+  display: flex;
+  align-items: center;
+}
+.gridItem_services {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: center;
+}
+.section_container_services {
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  height: fit-content;
+}
+.sectionTitle_services {
+  font: normal normal normal 18px/24px Segoe UI;
+  letter-spacing: 9px;
+  color: #39b54a;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.tomattoImage_services {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  max-width: 70px;
+  object-fit: contain;
+  right: -340px;
+  bottom: -80px;
+}
+
+@media screen and (max-width: 1200px) {
+  #cardText_services {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .gridContainer_services {
+    background: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .tomattoImage_services {
+    right: -250px;
+    bottom: -40px;
+  }
+  .gridContainer_services {
+    background: none;
+    height: fit-content;
+  }
+  #cardText_services {
+    font-size: 1.2rem;
+  }
+}

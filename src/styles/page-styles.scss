@@ -1,0 +1,74 @@
+.sectionContainer {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  // background-color: blue;
+  padding-top: 93px;
+  /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+.sectionContainerHome {
+  width: 100%;
+  height: 100%;
+  // min-height: 100vh;
+  // padding-top: 93px;
+  background-image: linear-gradient(#fff, #f9f9f9 99%);
+  // background: #fff;
+}
+.sectionContainerServices {
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  position: relative;
+
+  // min-height: 100vh;
+  // background-color: #f9f9fd;
+}
+.sectionContainerStats {
+  width: 100%;
+  height: 100%;
+}
+.sectionContainerFeatures {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(#fff, #f9f9f9 99%);
+}
+.sectionContainerBlogs {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: linear-gradient(#f9f9f9, #fff 99%);
+}
+.sectionContainerSponsors {
+  width: 100%;
+  height: 100%;
+}
+
+.sectionContainerTestimonials {
+  width: 100%;
+  height: 100%;
+}
+.sectionContainerContact {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .sectionContainerContact {
+    background: url(../assets/images/contact_bg.png);
+    background-size: 300% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+  .sectionContainerServices {
+    background: url(../assets/images/services_bg.png);
+    background-size: 200% 50%;
+    background-repeat: no-repeat;
+    background-position: center 90%;
+    position: relative;
+  }
+}
