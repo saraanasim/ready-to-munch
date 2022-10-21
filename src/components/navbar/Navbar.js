@@ -2,7 +2,7 @@ import { Container, IconButton, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import useScrollPosition from "../../hooks/useScrollPosition";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import Img from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { Box } from "@mui/system";
@@ -17,7 +17,7 @@ import { Box } from "@mui/system";
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("Home");
   const scrollPosition = useScrollPosition();
-  const { height, width } = useWindowDimensions();
+
   const logoImgData = useStaticQuery(graphql`
     query LogoQuery {
       file(relativePath: { eq: "logo.png" }) {
