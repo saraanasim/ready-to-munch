@@ -1,17 +1,17 @@
-import React from "react";
+import React from "react"
 
-import { ServicesSection } from "../components/services-section/ServicesSection";
-import { SponsorsSection } from "../components/sponsors-section/SponsorsSection";
-import { StatsSection } from "../components/stats-section/StatsSection";
-import { HomeSection } from "../components/home-section/HomeSection";
-import { ContactSection } from "../components/contact-section/ContactSection";
-import { FeaturesSection } from "../components/features-section/FeaturesSection";
-import { BlogsSection } from "../components/blogs-section/BlogsSection";
-import AppLayout from "../layouts/app-layout/AppLayout";
-import "../styles/page-styles.scss";
-import { TestimonialsSection } from "../components/testimonials-section/TestimonialsSection";
+import { ServicesSection } from "../components/services-section/ServicesSection"
+import { SponsorsSection } from "../components/sponsors-section/SponsorsSection"
+import { StatsSection } from "../components/stats-section/StatsSection"
+import { HomeSection } from "../components/home-section/HomeSection"
+import { ContactSection } from "../components/contact-section/ContactSection"
+import { FeaturesSection } from "../components/features-section/FeaturesSection"
+import { BlogsSection } from "../components/blogs-section/BlogsSection"
+import AppLayout from "../layouts/app-layout/AppLayout"
+import "../styles/page-styles.scss"
+import { TestimonialsSection } from "../components/testimonials-section/TestimonialsSection"
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 const THEME = createTheme({
   typography: {
@@ -21,7 +21,7 @@ const THEME = createTheme({
     fontWeightRegular: 400,
     fontWeightMedium: 500,
   },
-});
+})
 
 const Index = () => {
   return (
@@ -54,7 +54,7 @@ const Index = () => {
         </section>
       </AppLayout>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default Index;
+export default Index
