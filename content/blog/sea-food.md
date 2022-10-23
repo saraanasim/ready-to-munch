@@ -2,6 +2,7 @@
 path: seafood
 date: October 23, 2022 8:12 AM
 title: Sea Food
+author: Salaar Sikander
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/seafood.webp
