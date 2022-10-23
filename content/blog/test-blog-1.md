@@ -1,14 +1,13 @@
 ---
-path: test-blog
+path: pizza
 date: 2022-10-23T01:38:40.526Z
-title: TEST BLOG
-description: pesetting industry. Lorem Ipsum has been the industry's standard
-  dummy text ever since the 1500s, when an unknown printer took a galley of type
-  and scrambled it
-image: ../assets/burgerimage_blogs.png
+title: Pizza
+description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+  nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
+image: ../assets/pizzaimg_blogs.png
 ---
-<!--StartFragment-->
+Biryani has remained the top food pick for people of South Asia for decades. There is no other comfort food, the first choice for menus during events, and the mandatory lunch meal on Fridays for many families all over Pakistan. When venturing out for our favorite dish, we came across a rather confusing twist to it.
 
-**Lorem Ipsum** is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+ A small restaurant in Liaquatabad had created its own version of it – Nalli Biryani. Nalli or bone marrow is added on top of the biryani to signify the unique blend of spices in the biryani. When speaking with the owner, Muhammad Saqib, we were told that no oil or ghee is used in the making of this biryani. Ghousia Nalli Biryani is the pioneer behind the innovation of mixing Nalli with biryani in Karachi, and soon many were to follow.
 
-<!--EndFragment-->
+ However, the unique taste of Nalli Biryani remains unmatched at Ghousia. Long queues of eagerly waiting customers can be seen during rush hours, and a bombardment of calls for delivery too. Yes, that’s right. If you are unable to visit, you can always have Nalli Biryani from the comfort of your home!
