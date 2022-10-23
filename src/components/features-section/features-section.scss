@@ -8,10 +8,10 @@
 }
 
 .title_features {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0px;
-  color: #000000;
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0px !important;
+  color: #000000 !important;
 }
 .listContainer__features {
   height: 100%;
@@ -51,11 +51,11 @@
   height: fit-content;
 }
 .sectionTitle_features {
-  font: normal normal normal 18px/24px Segoe UI;
-  letter-spacing: 9px;
-  color: #39b54a;
-  text-transform: uppercase;
-  margin-bottom: 10px;
+  font: normal normal normal 18px/24px Segoe UI !important;
+  letter-spacing: 9px !important;
+  color: #39b54a !important;
+  text-transform: uppercase !important;
+  margin-bottom: 10px !important;
 }
 .fruitImage_features {
   position: absolute !important;

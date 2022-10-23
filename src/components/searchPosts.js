@@ -1,11 +1,26 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import styled from "styled-components"
 import { useFlexSearch } from "react-use-flexsearch"
 import * as queryString from "query-string"
-
+import Img from "gatsby-image"
 import { rhythm } from "../utils/typography"
-
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material"
+import { BsClock } from "react-icons/bs"
+import { calculateElapsedTime } from "../utils/utilityFunctions"
+import moment from "moment"
+import useWindowDimensions from "../hooks/useWindowDimensions"
+import { BlogCard } from "./blogs-section/carousel-component/CarouselComponent"
+import { Box } from "@mui/system"
+import CarouselComponentBlogPage from "./blog-page/carousel-component-blog-page/CarouselComponentBlogPage"
 const SearchBar = styled.div`
   display: flex;
   border: 1px solid #dfe1e5;
@@ -76,32 +91,21 @@ const SearchedPosts = ({ results }) =>
     </p>
   )
 
-const AllPosts = ({ posts }) => (
-  <div style={{ margin: "20px 0 40px" }}>
-    {posts.map(({ node }) => {
-      const title = node.frontmatter.title || node.fields.slug
-      return (
-        <div key={node.fields.slug}>
-          <h3
-            style={{
-              marginBottom: rhythm(1 / 4),
-            }}
-          >
-            <Link style={{ boxShadow: `none` }} to={`/blog${node.fields.slug}`}>
-              {title}
-            </Link>
-          </h3>
-          <small>{node.frontmatter.date}</small>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: node.frontmatter.description || node.excerpt,
-            }}
-          />
-        </div>
-      )
-    })}
-  </div>
-)
+const AllPosts = ({ posts }) => {
+  return (
+    <Grid container spacing={3}>
+      {posts.map(post => {
+        console.log("Each blog i all posts", post)
+        // const title = node.frontmatter.title || node.fields.slug
+        return (
+          <Grid item xl={4} lg={4} md={4} sm={6} xs={12}>
+            <BlogCard blog={post} />
+          </Grid>
+        )
+      })}
+    </Grid>
+  )
+}
 
 const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
   const { search } = queryString.parse(location.search)
@@ -114,8 +118,21 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
   )
 
   return (
-    <>
-      <SearchBar>
+    <Box
+      sx={{
+        backgroundImage: "linear-gradient(#fff, #f9f9f9 99%)",
+        maxWidth: "1000px",
+        width: "100%",
+        margin: "0px auto",
+        borderRadius: "20px",
+      }}
+    >
+      <Container maxWidth="md" sx={{ position: "relative" }}>
+        <CarouselComponentBlogPage blogs={posts} />
+
+        <AllPosts posts={posts} />
+      </Container>
+      {/* <SearchBar>
         <svg
           focusable="false"
           xmlns="http://www.w3.org/2000/svg"
@@ -135,9 +152,9 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
             setQuery(e.target.value)
           }}
         />
-      </SearchBar>
-      {query ? <SearchedPosts results={results} /> : <AllPosts posts={posts} />}
-    </>
+      </SearchBar> */}
+      {/* {query ? <SearchedPosts results={results} /> : <AllPosts posts={posts} />} */}
+    </Box>
   )
 }
 

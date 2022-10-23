@@ -1,11 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import React from "react";
-import { SponsorsSection } from "../sponsors-section/SponsorsSection";
-import "./blogs-section.scss";
-import CarouselComponent from "./carousel-component/CarouselComponent";
-export const BlogsSection = ({blogs}) => {
+import { Box, Container, Typography } from "@mui/material"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import React from "react"
+import { SponsorsSection } from "../sponsors-section/SponsorsSection"
+import "./blogs-section.scss"
+import CarouselComponent from "./carousel-component/CarouselComponent"
+export const BlogsSection = ({ blogs }) => {
   const blogsImagesData = useStaticQuery(graphql`
     query MyBlogsQuery {
       sauce_img: file(relativePath: { eq: "sauce_fries_blogs.png" }) {
@@ -16,7 +16,7 @@ export const BlogsSection = ({blogs}) => {
         }
       }
     }
-  `);
+  `)
   return (
     <Box className="container_blogs">
       <div
@@ -40,12 +40,15 @@ export const BlogsSection = ({blogs}) => {
       <Container maxWidth="lg" sx={{ padding: "50px 0px" }}>
         <CarouselComponent blogs={blogs} />
       </Container>
-      <Typography
-        sx={{ color: "#39B54A", fontWeight: 700, textAlign: "center" }}
-      >
-        Read More
-      </Typography>
+      <Link to="/blog/">
+        <Typography
+          sx={{ color: "#39B54A", fontWeight: 700, textAlign: "center" }}
+        >
+          Read More
+        </Typography>
+      </Link>
+
       <SponsorsSection />
     </Box>
-  );
-};
+  )
+}

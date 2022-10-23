@@ -8,7 +8,7 @@ import CardContent from "@mui/material/CardContent"
 import CardMedia from "@mui/material/CardMedia"
 import Typography from "@mui/material/Typography"
 import { CardActionArea } from "@mui/material"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import defaultImg from "../../../assets/images/cardSkeleton.gif"
 
@@ -21,6 +21,9 @@ import useWindowDimensions from "../../../hooks/useWindowDimensions"
 import { IoIosArrowDropleftCircle } from "react-icons/io"
 import { IoIosArrowDroprightCircle } from "react-icons/io"
 import { BsClock } from "react-icons/bs"
+import moment from "moment/moment"
+import { calculateElapsedTime } from "../../../utils/utilityFunctions"
+import { navigate } from "gatsby"
 
 const CarouselComponent = ({ blogs }) => {
   const responsive = {
@@ -42,50 +45,7 @@ const CarouselComponent = ({ blogs }) => {
       items: 1,
     },
   }
-  // var blogs = [
-  //   {
-  //     title: "Pizza",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: pizzaImg,
-  //     uploadTime: 30,
-  //   },
-  //   {
-  //     title: "Burgers",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: burgerImg,
-  //     uploadTime: 12,
-  //   },
-  //   {
-  //     title: "Fast Food",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: fastFoodImg,
-  //     uploadTime: 19,
-  //   },
-  //   {
-  //     title: "Pizza",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: pizzaImg,
-  //     uploadTime: 30,
-  //   },
-  //   {
-  //     title: "Burgers",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: burgerImg,
-  //     uploadTime: 12,
-  //   },
-  //   {
-  //     title: "Fast Food",
-  //     description:
-  //       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.",
-  //     img: fastFoodImg,
-  //     uploadTime: 19,
-  //   },
-  // ];
+
   return (
     <Box className="carousel_wrapper">
       <Carousel
@@ -111,7 +71,7 @@ const CarouselComponent = ({ blogs }) => {
         customButtonGroup={<ButtonGroup />}
       >
         {blogs.map((blog, i) => (
-          <Item key={i} blog={blog} />
+          <BlogCard key={i} blog={blog} />
         ))}
       </Carousel>
     </Box>
@@ -142,29 +102,20 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     </div>
   )
 }
-
-function Item({ blog }) {
-  //   const cardImagesData = useStaticQuery(graphql`
-  //     query MyCardQuery {
-  //       default_img: file(relativePath: { eq: "cardSkeleton.gif" }) {
-  //         childImageSharp {
-  //           fluid {
-  //             ...GatsbyImageSharpFluid
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `);
-
+export function BlogCard({ blog }) {
   const { width, height } = useWindowDimensions()
   return (
     <Card
+      onClick={() => navigate(`/blog${blog.node.fields.slug}`)}
+      // component={Link}
+      // to={`/blog${blog.node.fields.slug}`}
       sx={{
-        maxWidth: width >= 464 ? 300 : "100%",
+        maxWidth: width >= 464 ? 270 : "100%",
         padding: "20px",
         borderRadius: "20px",
         boxShadow: 2,
         margin: "0px auto",
+        minHeight: "350px",
       }}
     >
       <CardActionArea>
@@ -173,16 +124,29 @@ function Item({ blog }) {
           width="100%"
           //   style={{ width: "100%" }}
         >
-          <Img fluid={blog.node.frontmatter.image.childImageSharp.fluid} />
+          <Img
+            style={{
+              width: "100%",
+              height: "100%",
+              minHeight: "140px",
+              maxHeight: "160px",
+              borderRadius: "20px",
+            }}
+            fluid={blog.node.frontmatter.image.childImageSharp.fluid}
+          />
         </CardMedia>
         <CardContent>
           <Typography id="blog_title">{blog.node.frontmatter.title}</Typography>
           <Typography id="blog_desc">
-            {blog.node.frontmatter.description}
+            {blog.node.frontmatter.description.length >= 80
+              ? `${blog.node.frontmatter.description.slice(0, 80)}...`
+              : blog.node.frontmatter.description}
           </Typography>
           <div className="time_container_card">
             <BsClock className="btn_icon_card" />
-            <Typography id="blog_uploadTime">{`${blog.node.frontmatter.date} minutes ago`}</Typography>
+            <Typography id="blog_uploadTime">{`${calculateElapsedTime(
+              moment(blog.node.frontmatter.date)
+            )} minutes ago`}</Typography>
           </div>
         </CardContent>
       </CardActionArea>

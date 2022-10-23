@@ -39,10 +39,11 @@
 }
 #blog_desc {
   text-align: left;
-  font: normal normal normal 1.1rem Segoe UI;
+  font: normal normal normal 1rem Segoe UI;
   letter-spacing: 0px;
   color: #808080;
   margin-bottom: 8px;
+  word-spacing: 0.001rem;
 }
 .time_container_card {
   display: flex;
@@ -51,7 +52,7 @@
 }
 #blog_uploadTime {
   text-align: left;
-  font: normal normal normal 20px/27px Segoe UI;
+  font: normal normal normal 1.1rem Segoe UI;
   letter-spacing: 0px;
   color: #000000;
 }

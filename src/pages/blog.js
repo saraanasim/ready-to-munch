@@ -8,12 +8,13 @@ import Button from "../components/button"
 import SearchPosts from "../components/searchPosts"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import AppLayout from "../layouts/app-layout/AppLayout"
-const Blog=(props)=> {
+import BlogPageBanner from "../components/blog-page/banner/BlogPageBanner"
+const Blog = props => {
   const { data, navigate, location } = props
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
   const localSearchBlog = data.localSearchBlog
- 
+
   const THEME = createTheme({
     typography: {
       fontFamily: `"Segoe UI", "Poppins", "Arial", sans-serif`,
@@ -24,11 +25,11 @@ const Blog=(props)=> {
     },
   })
 
-    return (
-      <ThemeProvider theme={THEME}>
-         <AppLayout>
-         <SEO title="All posts" />
-        
+  return (
+    <ThemeProvider theme={THEME}>
+      <AppLayout>
+        <SEO title="All posts" />
+        <BlogPageBanner />
         <SearchPosts
           posts={posts}
           localSearchBlog={localSearchBlog}
@@ -38,12 +39,9 @@ const Blog=(props)=> {
         <Link to="/">
           <Button marginTop="85px">Go Home</Button>
         </Link>
-         </AppLayout>
-       
-      </ThemeProvider>
-     
-    )
-
+      </AppLayout>
+    </ThemeProvider>
+  )
 }
 
 export default Blog
@@ -67,9 +65,18 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date
             title
             description
+            author
+            image {
+              id
+              childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
