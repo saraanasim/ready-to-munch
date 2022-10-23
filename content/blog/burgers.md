@@ -3,6 +3,7 @@ path: burgers
 date: October 23, 2022 7:46 AM
 title: Burgers
 author: Abdu Rozik
+blogAuthor: Sameer Danish
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/burgerimage_blogs.png
