@@ -4,7 +4,7 @@ date: October 23, 2022 8:12 AM
 title: Sea Food
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
-image: ../assets/seafood.jpg
+image: ../assets/seafood.webp
 ---
 Biryani has remained the top food pick for people of South Asia for decades. There is no other comfort food, the first choice for menus during events, and the mandatory lunch meal on Fridays for many families all over Pakistan. When venturing out for our favorite dish, we came across a rather confusing twist to it.
 
