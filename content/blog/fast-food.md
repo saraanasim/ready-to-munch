@@ -4,7 +4,7 @@ date: 2022-10-23T02:34:53.736Z
 title: Fast Food
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
-image: ../assets/burgerimage_blogs.png
+image: ../assets/fastfoodimg_blogs.png
 ---
 Biryani has remained the top food pick for people of South Asia for decades. There is no other comfort food, the first choice for menus during events, and the mandatory lunch meal on Fridays for many families all over Pakistan. When venturing out for our favorite dish, we came across a rather confusing twist to it.
 
