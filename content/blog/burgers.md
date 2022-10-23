@@ -1,6 +1,6 @@
 ---
 path: burgers
-date: 2022-10-23T02:34:17.702Z
+date: October 23, 2022 7:46 AM
 title: Burgers
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
