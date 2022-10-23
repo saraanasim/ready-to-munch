@@ -3,6 +3,7 @@ path: biryani
 date: October 23, 2022 8:12 AM
 title: Biryani
 author: Kashmala
+blogAuthor: Lee Min Ho
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/biryani.jpg
