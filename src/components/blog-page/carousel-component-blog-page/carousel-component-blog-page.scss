@@ -1,6 +1,11 @@
 .carousel_wrapper_blog_page {
   flex-grow: 1;
   width: 100%;
+  position: relative;
+  top: -120px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .blog_page__paper {
   display: flex;
@@ -53,18 +58,18 @@
   color: #000000;
 }
 
-@media screen and (max-width: 899px) {
-  .blog_page__paper {
-    align-items: center;
-    text-align: center;
-  }
-  .testimonial_comments {
-    text-align: center;
-  }
-  .blog_page_avatar_container {
-    display: none;
-  }
-  .blog_page_avatar_container_upper {
-    display: block;
-  }
-}
+// @media screen and (max-width: 899px) {
+//   .blog_page__paper {
+//     align-items: center;
+//     text-align: center;
+//   }
+//   .testimonial_comments {
+//     text-align: center;
+//   }
+//   .blog_page_avatar_container {
+//     display: none;
+//   }
+//   .blog_page_avatar_container_upper {
+//     display: block;
+//   }
+// }

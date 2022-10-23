@@ -20,6 +20,7 @@ import { calculateElapsedTime } from "../../../utils/utilityFunctions"
 import moment from "moment"
 
 const CarouselComponentBlogPage = ({ blogs }) => {
+  console.log("Blogs in carousel", blogs)
   return (
     <Box className="carousel_wrapper_blog_page">
       <Carousel
@@ -36,22 +37,46 @@ const CarouselComponentBlogPage = ({ blogs }) => {
         indicatorContainerProps={{
           style: {
             marginTop: "50px", // 5
-            textAlign: "left", // 4
+            textAlign: "right", // 4
+            position: "absolute",
+            bottom: "0px",
+            right: "0px",
+            zIndex: 10,
+            padding: "0px 20px 20px 0px",
           },
         }}
       >
         {blogs.map((item, idx) => {
           return (
             <Grid container>
-              <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                <Img
-                  fluid={item.node.frontmatter.image.childImageSharp.fluid}
+              <Grid
+                item
+                xl={6}
+                lg={6}
+                md={6}
+                sm={6}
+                xs={12}
+                // sx={{ maxHeight: "400px" }}
+              >
+                <Box
                   style={{
                     width: "100%",
-                    maxWidth: "572px",
-                    maxHeight: "375px",
+                    height: "100%",
+                    maxWidth: "386px",
+                    maxHeight: "260px",
+                    padding: "20px",
+                    borderRadius: "20px",
                   }}
-                />
+                >
+                  <Img
+                    fluid={item.node.frontmatter.image.childImageSharp.fluid}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "20px",
+                    }}
+                  />
+                </Box>
               </Grid>
               <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
                 <Paper
@@ -59,12 +84,49 @@ const CarouselComponentBlogPage = ({ blogs }) => {
                     width: "100%",
                     border: "none",
                     boxShadow: "none",
+                    padding: "20px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    height: "100%",
+                    borderRadius: "20px",
                   }}
                   className="blog_page__paper"
                 >
-                  <Typography>{item.node.frontmatter.title}</Typography>
+                  <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Typography
+                      sx={{
+                        textAlign: "left",
+                        font: "normal normal normal 18px/24px Segoe UI",
+                        letterSpacing: "0px",
+                        color: "#39B54A",
+                      }}
+                    >
+                      {item.node.frontmatter.blogAuthor}
+                    </Typography>
+                    <Typography
+                      sx={{
+                        textAlign: "left",
+                        font: "normal normal 600 48px/64px Segoe UI",
+                        letterSpacing: "0px",
+                        color: "#000000",
+                      }}
+                    >
+                      {item.node.frontmatter.title}
+                    </Typography>
+                  </Box>
 
-                  <Typography className="testimonial_comments">
+                  <Typography
+                    sx={{
+                      textAlign: "left",
+                      font: "normal normal normal 1rem Segoe UI",
+                      letterSpacing: "0px",
+                      color: "#808080",
+                      marginBottom: "8px",
+                      wordSpacing: "0.001rem",
+                    }}
+                    className="testimonial_comments"
+                  >
                     {item.node.frontmatter.description}
                   </Typography>
                   <Typography className="testimonial_comments">

@@ -6,15 +6,25 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+import AppLayout from "../layouts/app-layout/AppLayout"
+const BlogPostTemplate = props => {
+  const post = props.data.mdx
+  const siteTitle = props.data.site.siteMetadata.title
+  const { previous, next } = props.pageContext
+  const THEME = createTheme({
+    typography: {
+      fontFamily: `"Segoe UI", "Poppins", "Arial", sans-serif`,
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+    },
+  })
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
-
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
+  return (
+    <ThemeProvider theme={THEME}>
+      <AppLayout>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -62,9 +72,9 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
-      </Layout>
-    )
-  }
+      </AppLayout>
+    </ThemeProvider>
+  )
 }
 
 export default BlogPostTemplate
@@ -86,7 +96,14 @@ export const pageQuery = graphql`
         date
         description
         blogAuthor
-        image
+        image {
+          id
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

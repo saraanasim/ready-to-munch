@@ -25,6 +25,7 @@ const BlogPageBanner = () => {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: "200px",
       }}
     >
       <Typography
