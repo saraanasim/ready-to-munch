@@ -1,6 +1,6 @@
 ---
 path: pizza
-date: 2022-10-23T02:32:44.023Z
+date: October 23, 2022 7:46 AM
 title: Pizza
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
