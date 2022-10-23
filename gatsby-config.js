@@ -110,7 +110,7 @@ module.exports = {
             resolve: `gatsby-remark-smartypants`,
           },
         ],
-        plugins: [`gatsby-remark-images`],
+        plugins: [`gatsby-remark-relative-images`, `gatsby-remark-images`],
       },
     },
     {

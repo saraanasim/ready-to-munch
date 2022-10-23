@@ -5,7 +5,7 @@ import React from "react";
 import { SponsorsSection } from "../sponsors-section/SponsorsSection";
 import "./blogs-section.scss";
 import CarouselComponent from "./carousel-component/CarouselComponent";
-export const BlogsSection = () => {
+export const BlogsSection = ({blogs}) => {
   const blogsImagesData = useStaticQuery(graphql`
     query MyBlogsQuery {
       sauce_img: file(relativePath: { eq: "sauce_fries_blogs.png" }) {
@@ -38,7 +38,7 @@ export const BlogsSection = () => {
       </div>
       <Typography className="title_blogs">Our Blogs</Typography>
       <Container maxWidth="lg" sx={{ padding: "50px 0px" }}>
-        <CarouselComponent />
+        <CarouselComponent blogs={blogs} />
       </Container>
       <Typography
         sx={{ color: "#39B54A", fontWeight: 700, textAlign: "center" }}

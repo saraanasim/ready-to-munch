@@ -23,7 +23,10 @@ const THEME = createTheme({
   },
 })
 
-const Index = () => {
+const Index = props => {
+  const { data, navigate, location } = props
+  const posts = data.allMdx.edges
+  console.log("All Blogs", posts)
   return (
     <ThemeProvider theme={THEME}>
       <AppLayout>
@@ -41,7 +44,7 @@ const Index = () => {
           <FeaturesSection />
         </section>
         <section className="sectionContainerBlogs" id="blogs">
-          <BlogsSection />
+          <BlogsSection blogs={posts} />
         </section>
         {/* <section className="sectionContainerSponsors">
         <SponsorsSection />
@@ -58,3 +61,39 @@ const Index = () => {
 }
 
 export default Index
+export const pageQuery = graphql`
+  {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    localSearchBlog {
+      index
+      store
+    }
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            image {
+              id
+              childImageSharp {
+                fluid(maxWidth: 60) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

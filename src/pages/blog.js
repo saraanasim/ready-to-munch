@@ -6,18 +6,29 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Button from "../components/button"
 import SearchPosts from "../components/searchPosts"
-
-class Blog extends React.Component {
-  render() {
-    const { data, navigate, location } = this.props
-    const siteTitle = data.site.siteMetadata.title
-    const posts = data.allMdx.edges
-    const localSearchBlog = data.localSearchBlog
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+import AppLayout from "../layouts/app-layout/AppLayout"
+const Blog=(props)=> {
+  const { data, navigate, location } = props
+  const siteTitle = data.site.siteMetadata.title
+  const posts = data.allMdx.edges
+  const localSearchBlog = data.localSearchBlog
+ 
+  const THEME = createTheme({
+    typography: {
+      fontFamily: `"Segoe UI", "Poppins", "Arial", sans-serif`,
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+    },
+  })
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
+      <ThemeProvider theme={THEME}>
+         <AppLayout>
+         <SEO title="All posts" />
+        
         <SearchPosts
           posts={posts}
           localSearchBlog={localSearchBlog}
@@ -27,9 +38,12 @@ class Blog extends React.Component {
         <Link to="/">
           <Button marginTop="85px">Go Home</Button>
         </Link>
-      </Layout>
+         </AppLayout>
+       
+      </ThemeProvider>
+     
     )
-  }
+
 }
 
 export default Blog
