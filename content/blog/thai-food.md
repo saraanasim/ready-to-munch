@@ -1,9 +1,10 @@
 ---
 path: Thai
+author: Lee Min Ho
 date: October 23, 2022 5:25 PM
 title: Thai Food
-author: Lee Min Ho
 blogAuthor: Taimoor Ali Khan
+blogAuthorImage: ../assets/fastfoodimg_blogs.png
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/thaifood.jpg
