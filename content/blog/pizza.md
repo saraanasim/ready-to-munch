@@ -2,6 +2,7 @@
 path: pizza
 date: October 23, 2022 7:46 AM
 title: Pizza
+author: Ji Chang Wook
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/pizzaimg_blogs.png
