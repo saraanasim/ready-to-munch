@@ -1,7 +1,7 @@
 ---
-path: test-blog
+path: test-blog3
 date: 2022-10-22T23:09:23.240Z
-title: TEST BLOG
+title: TEST BLOG 3
 description: pesetting industry. Lorem Ipsum has been the industry's standard
   dummy text ever since the 1500s, when an unknown printer took a galley of type
   and scrambled it
