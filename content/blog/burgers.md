@@ -1,5 +1,5 @@
 ---
-path: burger
+path: burgers
 date: 2022-10-23T02:34:17.702Z
 title: Burgers
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
