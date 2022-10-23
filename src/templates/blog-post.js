@@ -85,6 +85,8 @@ export const pageQuery = graphql`
         title
         date
         description
+        blogAuthor
+        image
       }
     }
   }

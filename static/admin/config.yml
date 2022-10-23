@@ -22,7 +22,7 @@ collections:
           format: LLL,
         }
       - { name: title, label: Title }
-      - { name: author, label: Author }
+      - { name: blogAuthor, label: Blog Author }
       - { name: description, label: Description }
       - { name: image, label: Image, widget: image }
       - { name: body, label: Body, widget: markdown }

@@ -68,7 +68,7 @@ export const pageQuery = graphql`
             date
             title
             description
-            author
+            blogAuthor
             image {
               id
               childImageSharp {
