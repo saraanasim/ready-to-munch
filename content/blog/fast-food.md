@@ -2,6 +2,7 @@
 path: fast-food
 date: October 23, 2022 7:45 AM
 title: Fast Food
+author: Haneen Yousuf
 description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod vero dolores et ea rebum. Stet sed diam nonumy eirmod vero.
 image: ../assets/fastfoodimg_blogs.png
