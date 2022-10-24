@@ -9,6 +9,8 @@ import SearchPosts from "../components/searchPosts"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import AppLayout from "../layouts/app-layout/AppLayout"
 import BlogPageBanner from "../components/blog-page/banner/BlogPageBanner"
+import { ContactSection } from "../components/contact-section/ContactSection"
+import Navbar from "../components/navbar/Navbar"
 const Blog = props => {
   const { data, navigate, location } = props
   const siteTitle = data.site.siteMetadata.title
@@ -28,6 +30,7 @@ const Blog = props => {
   return (
     <ThemeProvider theme={THEME}>
       <AppLayout>
+        <Navbar />
         <SEO title="All posts" />
         <BlogPageBanner />
         <SearchPosts
@@ -36,9 +39,6 @@ const Blog = props => {
           navigate={navigate}
           location={location}
         />
-        <Link to="/">
-          <Button marginTop="85px">Go Home</Button>
-        </Link>
       </AppLayout>
     </ThemeProvider>
   )

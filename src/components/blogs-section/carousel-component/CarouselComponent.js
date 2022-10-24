@@ -146,7 +146,7 @@ export function BlogCard({ blog }) {
             <BsClock className="btn_icon_card" />
             <Typography id="blog_uploadTime">{`${calculateElapsedTime(
               moment(blog.node.frontmatter.date)
-            )} minutes ago`}</Typography>
+            )} ago`}</Typography>
           </div>
         </CardContent>
       </CardActionArea>

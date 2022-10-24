@@ -21,6 +21,8 @@ import useWindowDimensions from "../hooks/useWindowDimensions"
 import { BlogCard } from "./blogs-section/carousel-component/CarouselComponent"
 import { Box } from "@mui/system"
 import CarouselComponentBlogPage from "./blog-page/carousel-component-blog-page/CarouselComponentBlogPage"
+import { ContactSection } from "./contact-section/ContactSection"
+import PaginationComponent from "./Pagination/PaginationComponent"
 const SearchBar = styled.div`
   display: flex;
   border: 1px solid #dfe1e5;
@@ -93,7 +95,7 @@ const SearchedPosts = ({ results }) =>
 
 const AllPosts = ({ posts }) => {
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={3} style={{ marginBottom: "50px" }}>
       {posts.map(post => {
         console.log("Each blog i all posts", post)
         // const title = node.frontmatter.title || node.fields.slug
@@ -110,12 +112,18 @@ const AllPosts = ({ posts }) => {
 const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
   const { search } = queryString.parse(location.search)
   const [query, setQuery] = useState(search || "")
+  const [currentPage, setCurrentPage] = useState(1)
+  const [postsPerPage, setPostsPerPage] = useState(6)
 
   const results = useFlexSearch(
     query,
     localSearchBlog.index,
     JSON.parse(localSearchBlog.store)
   )
+  const indexOfLastPost = currentPage * postsPerPage
+  const indexOfFirstPost = indexOfLastPost - postsPerPage
+  const currentBlogs = posts.slice(indexOfFirstPost, indexOfLastPost)
+  const paginate = pageNumber => setCurrentPage(pageNumber)
 
   return (
     <Box
@@ -130,8 +138,18 @@ const SearchPosts = ({ posts, localSearchBlog, location, navigate }) => {
       <Container maxWidth="md" sx={{ position: "relative" }}>
         <CarouselComponentBlogPage blogs={posts} />
 
-        <AllPosts posts={posts} />
+        <AllPosts posts={currentBlogs} />
+        <PaginationComponent
+          postsPerPage={postsPerPage}
+          setPostsPerPage={setPostsPerPage}
+          totalPosts={posts.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
       </Container>
+      <section className="sectionContainerContact">
+        <ContactSection />
+      </section>
       {/* <SearchBar>
         <svg
           focusable="false"

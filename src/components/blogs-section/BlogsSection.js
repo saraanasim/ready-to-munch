@@ -5,8 +5,8 @@ import React from "react"
 import { SponsorsSection } from "../sponsors-section/SponsorsSection"
 import "./blogs-section.scss"
 import CarouselComponent from "./carousel-component/CarouselComponent"
-export const BlogsSection = ({ blogs }) => {
-  const blogsImagesData = useStaticQuery(graphql`
+export const BlogsSection = ({ page }) => {
+  const blogsData = useStaticQuery(graphql`
     query MyBlogsQuery {
       sauce_img: file(relativePath: { eq: "sauce_fries_blogs.png" }) {
         childImageSharp {
@@ -15,30 +15,76 @@ export const BlogsSection = ({ blogs }) => {
           }
         }
       }
+      allMdx: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+        edges {
+          node {
+            excerpt
+            fields {
+              slug
+            }
+            frontmatter {
+              date
+              title
+              description
+              image {
+                id
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
+  console.log("Data isss", blogsData.allMdx.edges)
   return (
     <Box className="container_blogs">
-      <div
-        style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <div className="section_container_blogs">
-          <Img
-            className="sauceImage_blogs"
-            fluid={blogsImagesData.sauce_img.childImageSharp.fluid}
-          />
+      {page === "home" ? (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div className="section_container_blogs">
+            <Img
+              className="sauceImage_blogs"
+              fluid={blogsData.sauce_img.childImageSharp.fluid}
+            />
 
-          <Typography className="sectionTitle_blogs">Blogs</Typography>
+            <Typography className="sectionTitle_blogs">Blogs</Typography>
+          </div>
         </div>
-      </div>
-      <Typography className="title_blogs">Our Blogs</Typography>
+      ) : null}
+      {page === "blog" ? (
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div className="section_container_blogs">
+            <Typography className="sectionTitle_blogs">Blogs</Typography>
+          </div>
+        </div>
+      ) : null}
+      {page == "home" ? (
+        <Typography className="title_blogs">Our Blogs</Typography>
+      ) : null}
+      {page == "blog" ? (
+        <Typography className="title_blogs">Related Blogs</Typography>
+      ) : null}
+
       <Container maxWidth="lg" sx={{ padding: "50px 0px" }}>
-        <CarouselComponent blogs={blogs} />
+        <CarouselComponent blogs={blogsData.allMdx.edges} />
       </Container>
       <Link to="/blog/">
         <Typography
@@ -47,8 +93,7 @@ export const BlogsSection = ({ blogs }) => {
           Read More
         </Typography>
       </Link>
-
-      <SponsorsSection />
+      {page === "home" ? <SponsorsSection /> : null}
     </Box>
   )
 }

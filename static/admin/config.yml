@@ -23,6 +23,7 @@ collections:
         }
       - { name: title, label: Title }
       - { name: blogAuthor, label: Blog Author }
+      - { name: blogAuthorImage, label: Blog Author Image, widget: image }
       - { name: description, label: Description }
       - { name: image, label: Image, widget: image }
       - { name: body, label: Body, widget: markdown }

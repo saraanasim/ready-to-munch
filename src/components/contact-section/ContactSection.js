@@ -1,8 +1,8 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import "./contact-section.scss";
+import { Box, Button, Container, Grid, Typography } from "@mui/material"
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import "./contact-section.scss"
 export const ContactSection = () => {
   const contactImagesData = useStaticQuery(graphql`
     query MyContactQuery {
@@ -21,7 +21,7 @@ export const ContactSection = () => {
         }
       }
     }
-  `);
+  `)
   return (
     <Box className="container_contact">
       <Container maxWidth="lg" className="gridContainer_contact">
@@ -65,5 +65,5 @@ export const ContactSection = () => {
         </Grid>
       </Container>
     </Box>
-  );
-};
+  )
+}

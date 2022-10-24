@@ -1,11 +1,10 @@
-import { Container, IconButton, Menu, MenuItem } from "@mui/material";
-import React, { useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import useScrollPosition from "../../hooks/useScrollPosition";
+import { Container, IconButton, Menu, MenuItem } from "@mui/material"
+import React, { useState } from "react"
+import { GiHamburgerMenu } from "react-icons/gi"
 
-import Img from "gatsby-image";
-import { graphql, useStaticQuery } from "gatsby";
-import { Box } from "@mui/system";
+import Img from "gatsby-image"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { Box } from "@mui/system"
 
 // type MobileMenuProps = {
 //   anchorEl: null | HTMLElement;
@@ -15,8 +14,7 @@ import { Box } from "@mui/system";
 // };
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("Home");
-  const scrollPosition = useScrollPosition();
+  const [activeLink, setActiveLink] = useState("Home")
 
   const logoImgData = useStaticQuery(graphql`
     query LogoQuery {
@@ -28,60 +26,64 @@ const Navbar = () => {
         }
       }
     }
-  `);
-  console.log("Logo img data", logoImgData);
-  const [anchorEl, setAnchorEl] = useState();
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const open = anchorEl;
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  `)
+  console.log("Logo img data", logoImgData)
+  const [anchorEl, setAnchorEl] = useState()
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const open = anchorEl
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
-    <Box sx={scrollPosition <= 5 ? styles.navStyle : styles.navScrolling}>
+    <Box sx={styles.navStyle}>
       <Container sx={styles.innerContainer}>
-        <div style={styles.logoContainer}>
+        <Link
+          to="/#home"
+          style={styles.logoContainer}
+          onClick={() => setActiveLink("home")}
+        >
           <Img
             style={styles.logoStyle}
             fluid={logoImgData.file.childImageSharp.fluid}
           />
-        </div>
+        </Link>
 
         <Box sx={styles.linkContainer}>
-          <a
-            href="#features"
+          <Link
+            to="/#features"
             style={activeLink === "Features" ? styles.activeLink : styles.link}
             onClick={() => setActiveLink("Features")}
           >
             Features
-          </a>
-          <a
-            href="#blogs"
+          </Link>
+          <Link
+            to="/#blogs"
             style={activeLink === "Blogs" ? styles.activeLink : styles.link}
             onClick={() => setActiveLink("Blogs")}
           >
             Blogs
-          </a>
-          <a
-            href="#testimonials"
+          </Link>
+          <Link
+            to="/#testimonials"
             style={
               activeLink === "Testimonials" ? styles.activeLink : styles.link
             }
             onClick={() => setActiveLink("Testimonials")}
           >
             Testimonials
-          </a>
+          </Link>
 
-          <a
-            href="#contact"
+          <Link
+            to="/#contact"
             style={activeLink === "Contact" ? styles.activeLink : styles.link}
             onClick={() => setActiveLink("Contact")}
           >
             Contact Us
-          </a>
+          </Link>
         </Box>
         <IconButton
           sx={styles.hamburger}
@@ -99,10 +101,10 @@ const Navbar = () => {
         />
       </div>
     </Box>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
 
 const MobileMenu = ({
   showMobileMenu,
@@ -111,46 +113,46 @@ const MobileMenu = ({
   setShowMobileMenu,
 }) => {
   function handleClickMob(link) {
-    setActiveLink(link);
-    setShowMobileMenu(false);
+    setActiveLink(link)
+    setShowMobileMenu(false)
   }
   return (
     <Box sx={showMobileMenu ? styles.showMob : styles.hideMob}>
-      <a
-        href="#features"
+      <Link
+        to="#features"
         style={
           activeLink === "Features" ? styles.activeLinkMob : styles.linkMob
         }
         onClick={() => handleClickMob("Features")}
       >
         Features
-      </a>
-      <a
-        href="#blogs"
+      </Link>
+      <Link
+        to="#blogs"
         style={activeLink === "Blog" ? styles.activeLinkMob : styles.linkMob}
         onClick={() => handleClickMob("Blog")}
       >
         Blog
-      </a>
-      <a
-        href="#testimonials"
+      </Link>
+      <Link
+        to="#testimonials"
         style={
           activeLink === "Testimonials" ? styles.activeLinkMob : styles.linkMob
         }
         onClick={() => handleClickMob("Testimonials")}
       >
         Testimonials
-      </a>
-      <a
-        href="#contact"
+      </Link>
+      <Link
+        to="#contact"
         style={activeLink === "Contact" ? styles.activeLinkMob : styles.linkMob}
         onClick={() => handleClickMob("Contact")}
       >
         Contact Us
-      </a>
+      </Link>
     </Box>
-  );
-};
+  )
+}
 
 const styles = {
   navStyle: {
@@ -162,10 +164,11 @@ const styles = {
     flexDirection: "column",
     zIndex: 10,
     top: 0,
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     transition: "all 350ms linear",
     borderTopLeftRadius: "20px",
     borderTopRightRadius: "20px",
+    paddingTop: "20px",
     // margin: "50px 50px 0px 50px",
     // boxShadow: "0 4px 10px 2px #93908D",
   },
@@ -178,7 +181,7 @@ const styles = {
     flexDirection: "column",
     zIndex: 10,
     top: 0,
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     boxShadow: "0 4px 15px 2px #93908D",
     borderTopLeftRadius: "20px",
     borderTopRightRadius: "20px",
@@ -191,7 +194,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    backgroundColor: "#fff",
+    backgroundColor: "transparent",
     borderRadius: "20px",
   },
   logoContainer: {
@@ -202,6 +205,7 @@ const styles = {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    boxShadow: "none",
   },
   title: {
     //lightBlue; #5cc2ef
@@ -226,12 +230,16 @@ const styles = {
     fontWeight: 500,
     fontSize: "1rem",
     color: "#808080",
+    textDecoration: "none",
+    boxShadow: "none",
   },
   activeLink: {
     fontSize: "1rem",
-    color: "#808080",
+    color: "#39B54A",
     marginLeft: "45px",
     fontWeight: 600,
+    textDecoration: "none",
+    boxShadow: "none",
   },
   hamburger: {
     display: { xs: "flex", sm: "flex", md: "none", lg: "none", xl: "none" },
@@ -244,6 +252,7 @@ const styles = {
     width: "100%",
     backgroundColor: "#fff",
     transition: "all 250ms linear",
+    zIndex: 101,
   },
   hideMob: {
     display: "none",
@@ -256,11 +265,13 @@ const styles = {
   },
   activeLinkMob: {
     fontSize: "1rem",
-    color: "#808080",
+    color: "#39B54A",
     marginLeft: "45px",
     fontWeight: 600,
     paddingBottom: "5px",
     paddingTop: "5px",
+    textDecoration: "none",
+    boxShadow: "none",
   },
   linkMob: {
     fontSize: "1rem",
@@ -269,5 +280,7 @@ const styles = {
     fontWeight: 500,
     paddingBottom: "5px",
     paddingTop: "5px",
+    textDecoration: "none",
+    boxShadow: "none",
   },
-};
+}

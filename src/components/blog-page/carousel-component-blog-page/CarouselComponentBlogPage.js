@@ -132,7 +132,7 @@ const CarouselComponentBlogPage = ({ blogs }) => {
                   <Typography className="testimonial_comments">
                     {`${calculateElapsedTime(
                       moment(item.node.frontmatter.date)
-                    )} minutes ago`}
+                    )} ago`}
                   </Typography>
                 </Paper>
               </Grid>

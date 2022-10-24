@@ -31,7 +31,7 @@ body {
   height: 100%;
   // background-color: #f9f9f9;
   background-color: #f9f9f9;
-  // border-radius: 20px;
+  border-radius: 20px;
 }
 .inner__container {
   width: 100%;
@@ -49,8 +49,7 @@ body {
 
 footer {
   width: 100%;
-  background-color: #fff;
-  height: 93px;
+  // background-color: #fff;
 }
 footer .footer__container {
   width: 100%;
@@ -60,6 +59,8 @@ footer .footer__container {
   justify-content: space-between;
   align-items: center;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
 }
 footer .footer__container p {
   border-radius: 20px;

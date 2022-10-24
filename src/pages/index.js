@@ -12,6 +12,7 @@ import "../styles/page-styles.scss"
 import { TestimonialsSection } from "../components/testimonials-section/TestimonialsSection"
 
 import { ThemeProvider, createTheme } from "@mui/material/styles"
+import Navbar from "../components/navbar/Navbar"
 
 const THEME = createTheme({
   typography: {
@@ -31,6 +32,7 @@ const Index = props => {
     <ThemeProvider theme={THEME}>
       <AppLayout>
         <section className="sectionContainerHome" id="home">
+          <Navbar />
           <HomeSection />
         </section>
         <section className="sectionContainerServices" id="services">
@@ -44,7 +46,7 @@ const Index = props => {
           <FeaturesSection />
         </section>
         <section className="sectionContainerBlogs" id="blogs">
-          <BlogsSection blogs={posts} />
+          <BlogsSection page="home" />
         </section>
         {/* <section className="sectionContainerSponsors">
         <SponsorsSection />

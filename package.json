@@ -13,6 +13,7 @@
     "@mdx-js/mdx": "^1.5.1",
     "@mdx-js/react": "^1.5.1",
     "@mui/material": "^5.10.10",
+    "@mui/styles": "^5.10.10",
     "babel-plugin-styled-components": "^1.10.0",
     "framer-motion": "^7.6.1",
     "gatsby": "^2.24.47",
