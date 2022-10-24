@@ -14,6 +14,7 @@ import { calculateElapsedTime } from "../utils/utilityFunctions"
 import moment from "moment"
 import { BlogsSection } from "../components/blogs-section/BlogsSection"
 import { ContactSection } from "../components/contact-section/ContactSection"
+import Navbar from "../components/navbar/Navbar"
 
 const BlogPostTemplate = props => {
   const post = props.data.mdx
@@ -36,6 +37,110 @@ const BlogPostTemplate = props => {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+
+        <Box
+          style={{
+            backgroundImage: "linear-gradient(#fff, #f9f9f9 99%)",
+            borderRadius: "20px",
+          }}
+        >
+          <Navbar />
+          <Container
+            maxWidth="md"
+            sx={{ backgroundColor: "#fff", marginTop: "100px" }}
+          >
+            <Box sx={{ padding: "20px", width: "100%", height: "100%" }}>
+              <Box sx={{ width: "100%", height: "100%", maxHeight: "300px" }}>
+                <Img
+                  fluid={post.frontmatter.image.childImageSharp.fluid}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "20px",
+                    maxHeight: "300px",
+                  }}
+                />
+              </Box>
+              <Typography
+                sx={{
+                  textAlign: "left",
+                  font: "normal normal bold 48px/64px Segoe UI",
+                  letterSpacing: "0px",
+                  color: "#000000",
+                  margin: "20px 0px",
+                }}
+              >
+                {post.frontmatter.title}
+              </Typography>
+
+              <MDXRenderer>{post.body}</MDXRenderer>
+              <hr
+                style={{
+                  marginBottom: rhythm(1),
+                }}
+              />
+              <Box
+                sx={{
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "flex-start",
+                  alignItems: "center",
+                }}
+              >
+                <Avatar
+                  style={{
+                    height: "90px",
+                    width: "90px",
+                  }}
+                >
+                  <Img
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    fluid={
+                      post.frontmatter.blogAuthorImage.childImageSharp.fluid
+                    }
+                  />
+                </Avatar>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    marginLeft: "20px",
+                    flexGrow: 1,
+                  }}
+                >
+                  <Typography
+                    style={{
+                      textAlign: "left",
+                      font: "normal normal normal 1.1rem Segoe UI",
+                      letterSpacing: "0px",
+                      color: "#39B54A",
+                      marginBottom: "10px",
+                    }}
+                  >
+                    {post.frontmatter.blogAuthor}
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <BsClock style={{ fontSize: "15px", fill: "#000" }} />
+                    <Typography
+                      sx={{
+                        textAlign: "left",
+                        font: "normal normal normal 0.9rem Segoe UI",
+                        letterSpacing: "0px",
+                        color: "#000",
+                        marginLeft: "10px",
+                      }}
+                    >{`${calculateElapsedTime(
+                      moment(post.frontmatter.date)
+                    )} ago`}</Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+          </Container>
+        </Box>
         <Container
           maxWidth="md"
           sx={{ backgroundColor: "#fff", marginTop: "100px" }}
