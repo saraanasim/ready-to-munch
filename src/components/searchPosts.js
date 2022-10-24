@@ -17,7 +17,7 @@ import {
 import { BsClock } from "react-icons/bs"
 import { calculateElapsedTime } from "../utils/utilityFunctions"
 import moment from "moment"
-import useWindowDimensions from "../hooks/useWindowDimensions"
+
 import { BlogCard } from "./blogs-section/carousel-component/CarouselComponent"
 import { Box } from "@mui/system"
 import CarouselComponentBlogPage from "./blog-page/carousel-component-blog-page/CarouselComponentBlogPage"

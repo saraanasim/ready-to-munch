@@ -61,3 +61,18 @@
   fill: #000;
   margin-right: 10px;
 }
+
+.blog__card__container__actual {
+  max-width: 270px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 2;
+  margin: 0px auto;
+  min-height: 350px;
+}
+
+@media screen and (max-width: 464px) {
+  .blog__card__container__actual {
+    max-width: 100%;
+  }
+}

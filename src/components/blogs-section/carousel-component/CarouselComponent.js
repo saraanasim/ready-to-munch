@@ -16,7 +16,6 @@ import burgerImg from "../../../assets/images/burgerImage_blogs.png"
 import fastFoodImg from "../../../assets/images/fastfoodImg_blogs.png"
 import pizzaImg from "../../../assets/images/pizzaImg_blogs.png"
 import "react-multi-carousel/lib/styles.css"
-import useWindowDimensions from "../../../hooks/useWindowDimensions"
 
 import { IoIosArrowDropleftCircle } from "react-icons/io"
 import { IoIosArrowDroprightCircle } from "react-icons/io"
@@ -103,20 +102,12 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
   )
 }
 export function BlogCard({ blog }) {
-  const { width, height } = useWindowDimensions()
   return (
     <Card
       onClick={() => navigate(`/blog${blog.node.fields.slug}`)}
       // component={Link}
       // to={`/blog${blog.node.fields.slug}`}
-      sx={{
-        maxWidth: width >= 464 ? 270 : "100%",
-        padding: "20px",
-        borderRadius: "20px",
-        boxShadow: 2,
-        margin: "0px auto",
-        minHeight: "350px",
-      }}
+      className="blog__card__container__actual"
     >
       <CardActionArea>
         <CardMedia
