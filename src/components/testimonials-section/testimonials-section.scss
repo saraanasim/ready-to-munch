@@ -4,6 +4,8 @@
   //   background-color: aqua;
   padding-top: 50px;
   position: relative;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .gridContainer_testimonials {
   //   background: url(../../assets/images/contact_bg.png);
@@ -11,6 +13,8 @@
   //   background-repeat: no-repeat;
   //   background-size: contain;
   background-color: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .leftGrid_testimonials {
   height: 100%;
@@ -75,6 +79,7 @@
   color: #39b54a !important;
   text-transform: uppercase !important;
   margin-bottom: 10px !important;
+  margin-top: 50px !important;
 }
 .title_testimonials {
   font-size: 2.5rem !important;

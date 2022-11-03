@@ -124,14 +124,26 @@ const AppLayout = props => {
                   item
                   xl={6}
                   lg={6}
-                  md={6}
+                  md={12}
                   sm={12}
                   xs={12}
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: { sm: "center", md: "flex-start" },
-                    textAlign: { sm: "center", md: "left" },
+                    justifyContent: {
+                      xs: "center",
+                      sm: "center",
+                      md: "center",
+                      lg: "flex-start",
+                      xl: "flex-start",
+                    },
+                    textAlign: {
+                      xs: "center",
+                      sm: "center",
+                      md: "center",
+                      lg: "left",
+                      xl: "left",
+                    },
                   }}
                 >
                   {" "}
@@ -151,7 +163,7 @@ const AppLayout = props => {
                   item
                   xl={6}
                   lg={6}
-                  md={6}
+                  md={12}
                   sm={12}
                   xs={12}
                   sx={{
@@ -169,9 +181,7 @@ const AppLayout = props => {
                     <Box
                       sx={{
                         width: "100%",
-                        height: "100%",
-                        maxWidth: "90px",
-                        maxHeight: "50px",
+                        height: "60px",
                         padding: "20px",
                         border: "1px solid #707070",
                         borderRadius: "12px",
@@ -193,106 +203,35 @@ const AppLayout = props => {
                       </Typography>
                     </Box>
 
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        maxWidth: "90px",
-                        maxHeight: "50px",
-                        padding: "20px",
-                        border: "1px solid #707070",
-                        borderRadius: "12px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginLeft: "10px",
-                      }}
-                    >
+                    <Box className="footer_brand_image_box">
                       <Img
-                        style={{
-                          width: "100%",
-                          objectFit: "contain",
-                        }}
+                        className="footer_brand_image"
                         fluid={footerImagesData.visa_img.childImageSharp.fluid}
                       />
                     </Box>
 
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        maxWidth: "90px",
-                        maxHeight: "50px",
-                        padding: "20px",
-                        border: "1px solid #707070",
-                        borderRadius: "12px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginLeft: "10px",
-                      }}
-                    >
+                    <Box className="footer_brand_image_box">
                       <Img
-                        style={{
-                          width: "100%",
-                          maxWidth: "50px",
-                          objectFit: "contain",
-                        }}
+                        className="footer_brand_image"
                         fluid={
                           footerImagesData.mastercard_img.childImageSharp.fluid
                         }
                       />
                     </Box>
 
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        maxWidth: "90px",
-                        maxHeight: "50px",
-                        padding: "20px",
-                        border: "1px solid #707070",
-                        borderRadius: "12px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginLeft: "10px",
-                      }}
-                    >
+                    <Box className="footer_brand_image_box">
                       {" "}
                       <Img
-                        style={{
-                          width: "100%",
-                          maxWidth: "50px",
-                          objectFit: "contain",
-                        }}
+                        className="footer_brand_image"
                         fluid={
                           footerImagesData.jazzcash_img.childImageSharp.fluid
                         }
                       />
                     </Box>
 
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: "100%",
-                        maxWidth: "90px",
-                        maxHeight: "50px",
-                        padding: "20px",
-                        border: "1px solid #707070",
-                        borderRadius: "12px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginLeft: "10px",
-                      }}
-                    >
+                    <Box className="footer_brand_image_box">
                       <Img
-                        style={{
-                          width: "100%",
-                          maxWidth: "50px",
-                          objectFit: "contain",
-                        }}
+                        className="footer_brand_image"
                         fluid={
                           footerImagesData.easypaisa_img.childImageSharp.fluid
                         }

@@ -5,18 +5,18 @@ import {
   Grid,
   IconButton,
   Typography,
-} from "@mui/material";
-import { graphql, useStaticQuery } from "gatsby";
+} from "@mui/material"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   AiFillInstagram,
   AiOutlineTwitter,
   AiFillYoutube,
-} from "react-icons/ai";
-import { GoChevronRight } from "react-icons/go";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
-import Img from "gatsby-image";
-import React from "react";
-import "./home-section.scss";
+} from "react-icons/ai"
+import { GoChevronRight } from "react-icons/go"
+import { FaFacebookF, FaLinkedinIn } from "react-icons/fa"
+import Img from "gatsby-image"
+import React from "react"
+import "./home-section.scss"
 
 export const HomeSection = () => {
   const homeImagesData = useStaticQuery(graphql`
@@ -43,7 +43,7 @@ export const HomeSection = () => {
         }
       }
     }
-  `);
+  `)
 
   return (
     <Container maxWidth="lg" className="container_home">
@@ -57,7 +57,7 @@ export const HomeSection = () => {
             item
             xl={6}
             lg={6}
-            md={6}
+            md={7}
             sm={12}
             xs={12}
             className="leftGrid_home"
@@ -128,7 +128,7 @@ export const HomeSection = () => {
             item
             xl={6}
             lg={6}
-            md={6}
+            md={5}
             sm={12}
             xs={12}
             className="rightGrid_home"
@@ -141,5 +141,5 @@ export const HomeSection = () => {
         </Grid>
       </Container>
     </Container>
-  );
-};
+  )
+}

@@ -38,9 +38,7 @@ const Index = props => {
         <section className="sectionContainerServices" id="services">
           <ServicesSection />
         </section>
-        {/* <section className="sectionContainerStats">
-        <StatsSection />
-      </section> */}
+
         <section className="sectionContainerFeatures" id="features">
           <StatsSection />
           <FeaturesSection />

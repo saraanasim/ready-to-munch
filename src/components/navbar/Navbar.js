@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import Img from "gatsby-image"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { Box } from "@mui/system"
+import navbarStyles from "./Navbar.module.css"
 
 // type MobileMenuProps = {
 //   anchorEl: null | HTMLElement;
@@ -30,6 +31,7 @@ const Navbar = () => {
   console.log("Logo img data", logoImgData)
   const [anchorEl, setAnchorEl] = useState()
   const [showMobileMenu, setShowMobileMenu] = useState(false)
+
   const open = anchorEl
   const handleClick = event => {
     setAnchorEl(event.currentTarget)
@@ -43,7 +45,7 @@ const Navbar = () => {
       <Container sx={styles.innerContainer}>
         <Link
           to="/#home"
-          style={styles.logoContainer}
+          className={navbarStyles.company_logo_navbar}
           onClick={() => setActiveLink("home")}
         >
           <Img
@@ -83,6 +85,35 @@ const Navbar = () => {
             onClick={() => setActiveLink("Contact")}
           >
             Contact Us
+          </Link>
+        </Box>
+        <Box
+          sx={{
+            display: {
+              xs: "none",
+              sm: "none",
+              md: "flex",
+              lg: "flex",
+              xl: "flex",
+            },
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Link
+            to="/login"
+            style={styles.loginBtn}
+            onClick={() => setActiveLink("Login")}
+          >
+            Login
+          </Link>
+          <Link
+            to="/signup"
+            className={navbarStyles.navbar_signup_btn}
+            onClick={() => setActiveLink("Signup")}
+          >
+            Signup
           </Link>
         </Box>
         <IconButton
@@ -149,6 +180,20 @@ const MobileMenu = ({
         onClick={() => handleClickMob("Contact")}
       >
         Contact Us
+      </Link>
+      <Link
+        to="/login"
+        style={activeLink === "Login" ? styles.activeLinkMob : styles.linkMob}
+        onClick={() => setActiveLink("Login")}
+      >
+        Login
+      </Link>
+      <Link
+        to="/signup"
+        style={activeLink === "Signup" ? styles.activeLinkMob : styles.linkMob}
+        onClick={() => setActiveLink("Signup")}
+      >
+        Signup
       </Link>
     </Box>
   )
@@ -248,7 +293,7 @@ const styles = {
     display: { xs: "flex", sm: "flex", md: "none", lg: "none", xl: "none" },
     flexDirection: "column",
     position: "absolute",
-    bottom: -180,
+    bottom: -250,
     width: "100%",
     backgroundColor: "#fff",
     transition: "all 250ms linear",
@@ -282,5 +327,23 @@ const styles = {
     paddingTop: "5px",
     textDecoration: "none",
     boxShadow: "none",
+  },
+  loginBtn: {
+    color: "#FFBF00",
+    textDecoration: "none",
+    boxShadow: "none",
+    padding: "5px 15px",
+  },
+  signupBtn: {
+    color: "#000",
+    textDecoration: "none",
+    boxShadow: "none",
+    padding: "5px 25px",
+    fontWeight: "bold",
+    border: "1px solid #FFBF00",
+    borderRadius: "15px",
+    "&:hover": {
+      backgroundColor: "#FFBF00",
+    },
   },
 }

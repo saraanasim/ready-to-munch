@@ -46,6 +46,13 @@
   width: 100%;
   object-fit: contain;
 }
+.testimonial_rating_box {
+  display: flex;
+  // width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
 .testimonial_rating {
   text-align: left;
   font: normal normal 600 20px/22px Segoe UI;
@@ -54,6 +61,9 @@
 }
 
 @media screen and (max-width: 899px) {
+  .testimonial_rating_box {
+    justify-content: center;
+  }
   .testimonials__paper {
     align-items: center;
     text-align: center;

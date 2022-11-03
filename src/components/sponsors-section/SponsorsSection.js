@@ -1,8 +1,8 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
-import "./sponsors-section.scss";
-import Img from "gatsby-image";
+import { Box, Container, Grid, Typography } from "@mui/material"
+import { graphql, useStaticQuery } from "gatsby"
+import React from "react"
+import "./sponsors-section.scss"
+import Img from "gatsby-image"
 export const SponsorsSection = () => {
   const statsArray = [
     { value: "80+", desc: "Number of Restaurants" },
@@ -10,7 +10,7 @@ export const SponsorsSection = () => {
     { value: "18", desc: "Number of Cities" },
     { value: "1M", desc: "Total Downloads" },
     { value: "100K", desc: "Positive Reviews" },
-  ];
+  ]
   const sponsorsImagesData = useStaticQuery(graphql`
     query MySponsorsQuery {
       sp1: file(relativePath: { eq: "sp1_sponsors.png" }) {
@@ -49,14 +49,14 @@ export const SponsorsSection = () => {
         }
       }
     }
-  `);
+  `)
   const sponsorsArray = [
     sponsorsImagesData.sp1.childImageSharp.fluid,
     sponsorsImagesData.sp2.childImageSharp.fluid,
     sponsorsImagesData.sp3.childImageSharp.fluid,
     sponsorsImagesData.sp4.childImageSharp.fluid,
     sponsorsImagesData.sp5.childImageSharp.fluid,
-  ];
+  ]
   return (
     <Container maxWidth="md" className="container_sponsors">
       <Box className="outerBox_sponsors">
@@ -71,16 +71,16 @@ export const SponsorsSection = () => {
                   lg={2}
                   md={2}
                   sm={2}
-                  xs={12}
+                  xs={2}
                   className="gridItem_sponsors"
                 >
                   <Img className="spImage_spnsors" fluid={item} />
                 </Grid>
-              );
+              )
             })}
           </Grid>
         </Box>
       </Box>
     </Container>
-  );
-};
+  )
+}

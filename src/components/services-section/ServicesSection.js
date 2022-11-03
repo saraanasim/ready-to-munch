@@ -1,8 +1,8 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
-import React from "react";
-import "./services-section.scss";
-import Img from "gatsby-image";
-import { graphql, useStaticQuery } from "gatsby";
+import { Box, Container, Grid, Typography } from "@mui/material"
+import React from "react"
+import "./services-section.scss"
+import Img from "gatsby-image"
+import { graphql, useStaticQuery } from "gatsby"
 export const ServicesSection = () => {
   const servicesImagesData = useStaticQuery(graphql`
     query MyServicesQuery {
@@ -35,7 +35,7 @@ export const ServicesSection = () => {
         }
       }
     }
-  `);
+  `)
   return (
     <Box className="container_services">
       <div
@@ -64,7 +64,7 @@ export const ServicesSection = () => {
           container
           justifyContent="center"
           spacing={3}
-          sx={{ padding: 0, margin: 0 }}
+          // sx={{ padding: 0, margin: 0 }}
         >
           <Grid
             item
@@ -120,5 +120,5 @@ export const ServicesSection = () => {
         </Grid>
       </Container>
     </Box>
-  );
-};
+  )
+}

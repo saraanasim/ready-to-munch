@@ -1,6 +1,6 @@
-import React from "react";
+import React from "react"
 
-import Carousel from "react-material-ui-carousel";
+import Carousel from "react-material-ui-carousel"
 import {
   Avatar,
   Box,
@@ -8,13 +8,13 @@ import {
   CardContent,
   Paper,
   Typography,
-} from "@mui/material";
-import TripOriginIcon from "@mui/icons-material/TripOrigin";
+} from "@mui/material"
+import TripOriginIcon from "@mui/icons-material/TripOrigin"
 
-import { AiFillStar } from "react-icons/ai";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import "./carousel-component-testimonials.scss";
+import { AiFillStar } from "react-icons/ai"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import "./carousel-component-testimonials.scss"
 
 const CarouselComponent = () => {
   const testimonialsCarouselImagesData = useStaticQuery(graphql`
@@ -27,7 +27,7 @@ const CarouselComponent = () => {
         }
       }
     }
-  `);
+  `)
   var testimonials = [
     {
       name: "Jennifer Lee",
@@ -50,7 +50,7 @@ const CarouselComponent = () => {
       img: testimonialsCarouselImagesData.avatar_img.childImageSharp.fluid,
       rating: 4.9,
     },
-  ];
+  ]
   return (
     <Box className="carousel_wrapper_testimonials">
       <Carousel
@@ -90,14 +90,7 @@ const CarouselComponent = () => {
               <Typography className="testimonial_comments">
                 {item.comments}
               </Typography>
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                }}
-              >
+              <Box className="testimonial_rating_box">
                 <Avatar
                   className="testimonials_avatar_container"
                   alt={item.name}
@@ -133,11 +126,11 @@ const CarouselComponent = () => {
                 </Box>
               </Box>
             </Paper>
-          );
+          )
         })}
       </Carousel>
     </Box>
-  );
-};
+  )
+}
 
-export default CarouselComponent;
+export default CarouselComponent
